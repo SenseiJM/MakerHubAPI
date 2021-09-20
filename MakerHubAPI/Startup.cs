@@ -27,6 +27,18 @@ namespace MakerHubAPI {
             services.AddSwaggerGen(c => {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MakerHubAPI", Version = "v1" });
             });
+
+            //CORS (Règles d'accessibilité à l'API)
+            services.AddCors(options => options.AddPolicy("default", builder => {
+                builder.WithOrigins("https://localhost:4200"); //API Privée
+                //builder.AllowAnyOrigin(); //API Publique
+                //builder.WithMethods("GET"); //Autorise seulement la lecture
+                builder.AllowAnyMethod();
+                builder.AllowAnyHeader();
+            }));
+
+            services.AddDbContext<CTTDBContext>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -38,6 +50,8 @@ namespace MakerHubAPI {
             }
 
             app.UseHttpsRedirection();
+
+            app.UseCors("default");
 
             app.UseRouting();
 

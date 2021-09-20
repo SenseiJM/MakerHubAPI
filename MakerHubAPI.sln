@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31710.8
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MakerHubAPI", "MakerHubAPI\MakerHubAPI.csproj", "{990BF791-CD2F-4794-9695-61F1C1D5C01D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MakerHubAPI.DAL", "MakerHubAPI.DAL\MakerHubAPI.DAL.csproj", "{4FFFB721-3B76-4018-85A8-1B262C5AE8CF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{990BF791-CD2F-4794-9695-61F1C1D5C01D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{990BF791-CD2F-4794-9695-61F1C1D5C01D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{990BF791-CD2F-4794-9695-61F1C1D5C01D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FFFB721-3B76-4018-85A8-1B262C5AE8CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FFFB721-3B76-4018-85A8-1B262C5AE8CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FFFB721-3B76-4018-85A8-1B262C5AE8CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FFFB721-3B76-4018-85A8-1B262C5AE8CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
