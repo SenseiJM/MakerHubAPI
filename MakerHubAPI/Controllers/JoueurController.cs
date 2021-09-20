@@ -41,13 +41,13 @@ namespace MakerHubAPI.Controllers {
             return Ok(jService.GetAll());
         }
 
-        [HttpPut]
+        [HttpPut("{id")]
         public IActionResult Update(JoueurDetailsDTO dto, int id) {
             jService.Update(dto, id);
             return NoContent();
         }
 
-        [HttpDelete]
+        [HttpDelete("{id")]
         public IActionResult Delete(int id) {
             jService.Delete(id);
             return NoContent();
