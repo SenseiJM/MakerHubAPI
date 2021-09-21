@@ -28,11 +28,11 @@ namespace MakerHubAPI.DAL.Configurations {
                 .IsRequired()
                 .HasMaxLength(6);
 
-            builder.HasOne(j => j.ClassementHommes).WithMany(c => c.Joueurs).HasForeignKey(j => j.IDClassementHommes);
-            builder.HasOne(j => j.ClassementDames).WithMany(c => c.Joueurs).HasForeignKey(j => j.IDClassementDames);
+            builder.HasOne(j => j.ClassementHommes).WithMany(c => c.JoueursHommes).HasForeignKey(j => j.IDClassementHommes);
+            builder.HasOne(j => j.ClassementDames).WithMany(c => c.JoueursDames).HasForeignKey(j => j.IDClassementDames);
             builder.HasOne(j => j.CategorieAge).WithMany(ca => ca.Joueurs).HasForeignKey(j => j.IDCategorieAge);
-            builder.HasOne(j => j.EquipeHommes).WithMany(e => e.Joueurs).HasForeignKey(j => j.IDEquipeHommes);
-            builder.HasOne(j => j.EquipeDames).WithMany(e => e.Joueurs).HasForeignKey(j => j.IDEquipeDames);
+            builder.HasOne(j => j.EquipeHommes).WithMany(e => e.JoueursHommes).HasForeignKey(j => j.IDEquipeHommes);
+            builder.HasOne(j => j.EquipeDames).WithMany(e => e.JoueursDames).HasForeignKey(j => j.IDEquipeDames);
         }
     }
 }

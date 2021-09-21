@@ -15,7 +15,8 @@ namespace MakerHubAPI.DAL.Entities {
         public TimeSpan? HeureDepart {  get; set; }
         public string Division {  get; set; }
         public CategorieInterclubs CategorieInterclubs { get; set; }
-        public IEnumerable<Joueur> Joueurs { get; set; }
+        public IEnumerable<Joueur> JoueursHommes { get; set; }
+        public IEnumerable<Joueur> JoueursDames { get; set; }
 
     }
 }

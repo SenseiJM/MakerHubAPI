@@ -12,6 +12,8 @@ namespace MakerHubAPI.DAL.Configurations {
         public void Configure(EntityTypeBuilder<JoueurStage> builder) {
             builder.ToTable("JoueurStage");
 
+            builder.HasKey(jc => new { jc.IDStage, jc.IDJoueur });
+
             builder.HasOne(jc => jc.Stage).WithMany(s => s.JoueurStages).HasForeignKey(jc => jc.IDStage);
             builder.HasOne(jc => jc.Joueur).WithMany(j => j.JoueurStages).HasForeignKey(jc => jc.IDJoueur);
         }

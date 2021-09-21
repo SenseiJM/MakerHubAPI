@@ -31,8 +31,8 @@ namespace MakerHubAPI.DAL.Configurations {
                 .IsRequired()
                 .HasMaxLength(1500);
 
-            builder.HasOne(s => s.ClassementMinimum).WithMany(cm => cm.Stages).HasForeignKey(s => s.IDClassementMinimum);
-            builder.HasOne(s => s.ClassementMaximum).WithMany(cm => cm.Stages).HasForeignKey(s => s.IDClassementMaximum);
+            builder.HasOne(s => s.ClassementMinimum).WithMany(cm => cm.StagesMin).HasForeignKey(s => s.IDClassementMinimum).OnDelete(DeleteBehavior.NoAction);
+            builder.HasOne(s => s.ClassementMaximum).WithMany(cm => cm.StagesMax).HasForeignKey(s => s.IDClassementMaximum).OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

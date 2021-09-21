@@ -9,9 +9,12 @@ namespace MakerHubAPI.DAL.Entities {
 
         public int ID {  get; set; }
         public string Denomination {  get; set; }
-        public IEnumerable<Competition> Competitions { get; set; }
-        public IEnumerable<Stage> Stages { get; set; }
-        public IEnumerable<Joueur> Joueurs { get; set; }
+        public IEnumerable<Competition> CompetitionsMin { get; set; }
+        public IEnumerable<Competition> CompetitionsMax { get; set; }
+        public IEnumerable<Stage> StagesMin { get; set; }
+        public IEnumerable<Stage> StagesMax { get; set; }
+        public IEnumerable<Joueur> JoueursHommes { get; set; }
+        public IEnumerable<Joueur> JoueursDames { get; set; }
 
     }
 }

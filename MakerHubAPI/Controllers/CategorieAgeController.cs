@@ -1,4 +1,4 @@
-﻿using MakerHubAPI.DTO.Classement;
+﻿using MakerHubAPI.DTO.CategorieAge;
 using MakerHubAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -7,26 +7,28 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace MakerHubAPI.Controllers {
+    public class CategorieAgeController : ControllerBase {
 
-    [Route("api/[controller]")]
-    [ApiController]
-    public class ClassementController : ControllerBase {
+        private CategorieAgeService cService;
 
-        private ClassementService cService;
-
-        public ClassementController(ClassementService cService) {
+        public CategorieAgeController(CategorieAgeService cService) {
             this.cService = cService;
         }
 
         [HttpPost]
-        public IActionResult AddClassement(ClassementAddDTO dto) {
+        public IActionResult AddCategorieAge(CategorieAgeAddDTO dto) {
             cService.Create(dto);
             return NoContent();
         }
 
         [HttpGet("byID/{id}")]
-        public IActionResult GetByID(int id) {
+        public IActionResult GetOneByID(int id) {
             return Ok(cService.GetByID(id));
+        }
+
+        [HttpGet("byName/{name}")]
+        public IActionResult GetAllByName(string name) {
+            return Ok(cService.GetAllByName(name));
         }
 
         [HttpGet]
@@ -35,7 +37,7 @@ namespace MakerHubAPI.Controllers {
         }
 
         [HttpPut("{id}")]
-        public IActionResult Update(ClassementDetailsDTO dto, int id) {
+        public IActionResult Update(CategorieAgeDetailsDTO dto, int id) {
             cService.Update(dto, id);
             return NoContent();
         }
