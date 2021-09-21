@@ -1,4 +1,4 @@
-﻿using MakerHubAPI.DTO.CategorieAge;
+﻿using MakerHubAPI.DTO.Equipe;
 using MakerHubAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -10,44 +10,44 @@ namespace MakerHubAPI.Controllers {
 
     [Route("api/[controller]")]
     [ApiController]
-    public class CategorieAgeController : ControllerBase {
+    public class EquipeController : ControllerBase {
 
-        private CategorieAgeService cService;
+        private EquipeService eService;
 
-        public CategorieAgeController(CategorieAgeService cService) {
-            this.cService = cService;
+        public EquipeController(EquipeService eService) {
+            this.eService = eService;
         }
 
         [HttpPost]
-        public IActionResult AddCategorieAge(CategorieAgeAddDTO dto) {
-            cService.Create(dto);
+        public IActionResult AddEquipe(EquipeAddDTO dto) {
+            eService.Create(dto);
             return NoContent();
         }
 
         [HttpGet("byID/{id}")]
         public IActionResult GetOneByID(int id) {
-            return Ok(cService.GetByID(id));
+            return Ok(eService.GetByID(id));
         }
 
         [HttpGet("byName/{name}")]
         public IActionResult GetAllByName(string name) {
-            return Ok(cService.GetAllByName(name));
+            return Ok(eService.GetAllByName(name));
         }
 
         [HttpGet]
         public IActionResult GetAll() {
-            return Ok(cService.GetAll());
+            return Ok(eService.GetAll());
         }
 
         [HttpPut("{id}")]
-        public IActionResult Update(CategorieAgeDetailsDTO dto, int id) {
-            cService.Update(dto, id);
+        public IActionResult Update(EquipeDetailsDTO dto, int id) {
+            eService.Update(dto, id);
             return NoContent();
         }
 
         [HttpDelete("{id}")]
         public IActionResult Delete(int id) {
-            cService.Delete(id);
+            eService.Delete(id);
             return NoContent();
         }
     }
