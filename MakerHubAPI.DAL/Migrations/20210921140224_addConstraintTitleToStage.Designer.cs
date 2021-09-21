@@ -4,14 +4,16 @@ using MakerHubAPI.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace MakerHubAPI.DAL.Migrations
 {
     [DbContext(typeof(CTTDBContext))]
-    partial class CTTDBContextModelSnapshot : ModelSnapshot
+    [Migration("20210921140224_addConstraintTitleToStage")]
+    partial class addConstraintTitleToStage
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

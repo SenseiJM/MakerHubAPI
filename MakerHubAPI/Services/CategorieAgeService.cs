@@ -41,7 +41,7 @@ namespace MakerHubAPI.Services {
             }
         }
 
-        public CategorieAgeDetailsDTO GetAllByName(string search) {
+        public IEnumerable<CategorieAgeDetailsDTO> GetAllByName(string search) {
             foreach (var catAge in cTTDB.CategoriesAge) {
                 if (catAge.Nom == search) {
                     yield return new CategorieAgeDetailsDTO {

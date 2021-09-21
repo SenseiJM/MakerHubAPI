@@ -16,6 +16,7 @@ namespace MakerHubAPI.DAL.Configurations {
 
             builder.Property(s => s.ID).ValueGeneratedOnAdd();
 
+            builder.Property(s => s.Titre).HasMaxLength(100).IsRequired();
             builder.Property(s => s.DateDebut).IsRequired();
             builder.Property(s => s.DateFin).IsRequired();
             builder.Property(s => s.HeureDebut).IsRequired();
