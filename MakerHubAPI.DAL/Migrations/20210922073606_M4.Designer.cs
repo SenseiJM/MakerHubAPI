@@ -4,14 +4,16 @@ using MakerHubAPI.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace MakerHubAPI.DAL.Migrations
 {
     [DbContext(typeof(CTTDBContext))]
-    partial class CTTDBContextModelSnapshot : ModelSnapshot
+    [Migration("20210922073606_M4")]
+    partial class M4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -306,9 +308,7 @@ namespace MakerHubAPI.DAL.Migrations
                         .HasColumnType("float");
 
                     b.Property<string>("Titre")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 

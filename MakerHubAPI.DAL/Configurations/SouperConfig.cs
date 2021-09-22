@@ -16,6 +16,7 @@ namespace MakerHubAPI.DAL.Configurations {
 
             builder.Property(s => s.ID).ValueGeneratedOnAdd();
 
+            builder.Property(s => s.Titre).IsRequired().HasMaxLength(50);
             builder.Property(s => s.Date).IsRequired();
             builder.Property(s => s.IDType).IsRequired();
             builder.Property(s => s.PrixAffilies).IsRequired();

@@ -16,6 +16,7 @@ namespace MakerHubAPI.DAL.Entities {
         public byte[]? Photo {  get; set; }
         public int? NombreMax { get; set; }
         public TypeSouper TypeSouper { get; set; }
+        public string Titre { get; set; }
 
     }
 }
