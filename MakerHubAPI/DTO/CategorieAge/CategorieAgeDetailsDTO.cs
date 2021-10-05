@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 namespace MakerHubAPI.DTO.CategorieAge {
     public class CategorieAgeDetailsDTO {
 
+        public int ID { get; set; }
         public string Nom { get; set; }
         public string Genre { get; set; }
 

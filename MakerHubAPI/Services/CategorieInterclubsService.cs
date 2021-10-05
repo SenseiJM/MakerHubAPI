@@ -19,6 +19,7 @@ namespace MakerHubAPI.Services {
             cTTDB.CategoriesInterclubs.Add(new CategorieInterclubs {
                 Genre = dto.Genre
             });
+            cTTDB.SaveChanges();
         }
 
         public CategorieInterclubsDetailsDTO GetByID(int id) {

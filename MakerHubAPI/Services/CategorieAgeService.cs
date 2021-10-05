@@ -35,6 +35,7 @@ namespace MakerHubAPI.Services {
         public IEnumerable<CategorieAgeDetailsDTO> GetAll() {
             foreach (var catAge in cTTDB.CategoriesAge) {
                 yield return new CategorieAgeDetailsDTO {
+                    ID = catAge.ID,
                     Nom = catAge.Nom,
                     Genre = catAge.Genre
                 };

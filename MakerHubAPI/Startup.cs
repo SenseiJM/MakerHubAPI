@@ -1,4 +1,5 @@
 using MakerHubAPI.DAL;
+using MakerHubAPI.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -31,7 +32,7 @@ namespace MakerHubAPI {
 
             //CORS (Règles d'accessibilité à l'API)
             services.AddCors(options => options.AddPolicy("default", builder => {
-                builder.WithOrigins("https://localhost:4200"); //API Privée
+                builder.WithOrigins("http://localhost:4200"); //API Privée
                 //builder.AllowAnyOrigin(); //API Publique
                 //builder.WithMethods("GET"); //Autorise seulement la lecture
                 builder.AllowAnyMethod();
@@ -39,6 +40,16 @@ namespace MakerHubAPI {
             }));
 
             services.AddDbContext<CTTDBContext>();
+            
+            services.AddScoped<JoueurService>();
+            services.AddScoped<AnnonceService>();
+            services.AddScoped<CategorieInterclubsService>();
+            services.AddScoped<ClassementService>();
+            services.AddScoped<EquipeService>();
+            services.AddScoped<SouperService>();
+            services.AddScoped<StageService>();
+            services.AddScoped<TypeSouperService>();
+            services.AddScoped<CategorieAgeService>();
 
         }
 
@@ -49,8 +60,6 @@ namespace MakerHubAPI {
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "MakerHubAPI v1"));
             }
-
-            app.UseHttpsRedirection();
 
             app.UseCors("default");
 

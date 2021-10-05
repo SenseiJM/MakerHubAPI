@@ -33,6 +33,7 @@ namespace MakerHubAPI.Services {
         public IEnumerable<ClassementDetailsDTO> GetAll() {
             foreach (var classement in cTTDB.Classements) {
                 yield return new ClassementDetailsDTO {
+                    ID = classement.ID,
                     Denomination = classement.Denomination
                 };
             }

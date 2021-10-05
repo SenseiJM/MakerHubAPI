@@ -1,10 +1,12 @@
 ﻿using MakerHubAPI.DAL;
 using MakerHubAPI.DAL.Entities;
 using MakerHubAPI.DTO;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+
 
 namespace MakerHubAPI.Services {
     public class JoueurService {
@@ -48,13 +50,26 @@ namespace MakerHubAPI.Services {
 
         public IEnumerable<JoueurIndexDTO> GetAll() {
 
-            foreach (var joueur in cTTDB.Joueurs) {
-                yield return new JoueurIndexDTO {
-                    Nom = joueur.Nom,
-                    Prenom = joueur.Prenom,
-                    IDClassementHommes = joueur.IDClassementHommes
-                };
-            }
+            // OLD VERSION (explicit loading / eager loading)
+            //foreach (var joueur in cTTDB.Joueurs.Include(joueur => joueur.ClassementHommes)) {
+            //    yield return new JoueurIndexDTO {
+            //        Nom = joueur.Nom,
+            //        Prenom = joueur.Prenom,
+            //        IDClassementHommes = joueur.IDClassementHommes,
+            //        ClassementHommes = joueur.ClassementHommes?.Denomination
+            //    };
+            //}
+
+            //lazy loading
+            return cTTDB.Joueurs.Select(joueur => new JoueurIndexDTO {
+                ID = joueur.ID,
+                Nom = joueur.Nom,
+                Prenom = joueur.Prenom,
+                IDClassementHommes = joueur.IDClassementHommes,
+                ClassementHommes = joueur.ClassementHommes.Denomination,
+                IDClassementDames = joueur.IDClassementDames,
+                ClassementDames = joueur.ClassementDames.Denomination
+            });
 
         }
 

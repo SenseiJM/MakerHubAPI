@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 namespace MakerHubAPI.DTO.Classement {
     public class ClassementDetailsDTO {
 
+        public int ID { get; set; }
         public string Denomination { get; set; }
 
     }

@@ -39,7 +39,7 @@ namespace MakerHubAPI.Controllers {
             return Ok(aService.GetAll());
         }
 
-        [HttpPut("{id})"]
+        [HttpPut("{id}")]
         public IActionResult Update(AnnonceDetailsDTO dto, int id) {
             aService.Update(dto, id);
             return NoContent();
