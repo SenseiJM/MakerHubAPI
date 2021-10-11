@@ -51,5 +51,17 @@ namespace MakerHubAPI.Controllers {
             return NoContent();
         }
 
+        [HttpGet("image/{id}")]
+        public IActionResult GetImage(int id) {
+
+            AnnonceDetailsDTO dto = aService.GetByID(id);
+
+            if(dto?.Photo == null) {
+                return NotFound();
+            }
+
+            return File(dto.Photo, "image/png");
+        }
+
     }
 }

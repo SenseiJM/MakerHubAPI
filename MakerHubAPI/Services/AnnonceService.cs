@@ -51,7 +51,7 @@ namespace MakerHubAPI.Services {
             foreach (var annonce in cTTDB.Annonces) {
                 yield return new AnnonceIndexDTO {
                     Titre = annonce.Titre,
-                    Photo = annonce.Photo
+                    ID = annonce.ID
                 };
             }
         }
