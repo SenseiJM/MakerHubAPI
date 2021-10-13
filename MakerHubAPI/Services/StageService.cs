@@ -25,7 +25,10 @@ namespace MakerHubAPI.Services {
                 PrixExternes = dto.PrixExternes,
                 IDClassementMinimum = dto.IDClassementMinimum,
                 IDClassementMaximum = dto.IDClassementMaximum,
-                Entraineur = dto.Entraineur
+                Entraineur = dto.Entraineur,
+                Description = dto.Description,
+                Titre = dto.Titre,
+                NombreMax = dto.NombreMax
             });
             cTTDB.SaveChanges();
         }
@@ -48,20 +51,13 @@ namespace MakerHubAPI.Services {
             };
         }
 
-        public IEnumerable<StageDetailsDTO> GetAll() {
+        public IEnumerable<StageIndexDTO> GetAll() {
             foreach (var stage in cTTDB.Stages) {
-                yield return new StageDetailsDTO {
+                yield return new StageIndexDTO {
                     DateDebut = stage.DateDebut,
                     DateFin = stage.DateFin,
-                    Description = stage.Description,
-                    Entraineur = stage.Entraineur,
-                    HeureDebut = stage.HeureDebut,
-                    HeureFin = stage.HeureFin,
-                    IDClassementMaximum = stage.IDClassementMaximum,
-                    IDClassementMinimum = stage.IDClassementMinimum,
-                    NombreMax = stage.NombreMax,
-                    PrixAffilies = stage.PrixAffilies,
-                    PrixExternes = stage.PrixExternes
+                    Titre = stage.Titre,
+                    ID = stage.ID
                 };
             }
         }

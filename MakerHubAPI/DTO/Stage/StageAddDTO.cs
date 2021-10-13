@@ -8,6 +8,10 @@ namespace MakerHubAPI.DTO.Stage {
     public class StageAddDTO {
 
         [Required]
+        public string Titre { get; set; }
+
+        [Required]
+        //Moyen de mettre en JSON (Quel type d'entrée/de formatage est désiré)
         public DateTime DateDebut { get; set; }
 
         [Required]
