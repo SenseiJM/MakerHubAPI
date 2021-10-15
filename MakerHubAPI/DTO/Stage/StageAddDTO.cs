@@ -8,6 +8,7 @@ namespace MakerHubAPI.DTO.Stage {
     public class StageAddDTO {
 
         [Required]
+        [MaxLength(100)]
         public string Titre { get; set; }
 
         [Required]
@@ -18,10 +19,12 @@ namespace MakerHubAPI.DTO.Stage {
         public DateTime DateFin { get; set; }
 
         [Required]
-        public TimeSpan HeureDebut { get; set; }
+        [MaxLength(5)]
+        public string HeureDebut { get; set; }
 
         [Required]
-        public TimeSpan HeureFin { get; set; }
+        [MaxLength(5)]
+        public string HeureFin { get; set; }
 
         [Required]
         public double PrixAffilies { get; set; }

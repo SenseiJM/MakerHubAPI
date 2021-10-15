@@ -11,8 +11,8 @@ namespace MakerHubAPI.DAL.Entities {
         public string Titre { get; set; }
         public DateTime DateDebut {  get; set; }
         public DateTime DateFin {  get; set; }
-        public TimeSpan HeureDebut {  get; set; }
-        public TimeSpan HeureFin {  get; set; }
+        public string HeureDebut {  get; set; }
+        public string HeureFin {  get; set; }
         public double PrixAffilies {  get; set; }
         public double PrixExternes {  get; set; }
         public int IDClassementMinimum {  get; set; }

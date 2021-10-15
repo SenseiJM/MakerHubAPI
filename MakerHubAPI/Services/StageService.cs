@@ -56,6 +56,8 @@ namespace MakerHubAPI.Services {
                 yield return new StageIndexDTO {
                     DateDebut = stage.DateDebut,
                     DateFin = stage.DateFin,
+                    HeureDebut = stage.HeureDebut,
+                    HeureFin = stage.HeureFin,
                     Titre = stage.Titre,
                     ID = stage.ID
                 };

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace MakerHubAPI.DTO.Stage {
@@ -8,8 +9,11 @@ namespace MakerHubAPI.DTO.Stage {
 
         public int ID { get; set; }
         public string Titre { get; set; }
+
         public DateTime DateDebut { get; set; }
         public DateTime DateFin { get; set; }
+        public string HeureDebut { get; set; }
+        public string HeureFin { get; set; }
 
     }
 }

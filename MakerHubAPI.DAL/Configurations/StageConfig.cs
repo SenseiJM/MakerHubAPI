@@ -19,8 +19,12 @@ namespace MakerHubAPI.DAL.Configurations {
             builder.Property(s => s.Titre).HasMaxLength(100).IsRequired();
             builder.Property(s => s.DateDebut).IsRequired();
             builder.Property(s => s.DateFin).IsRequired();
-            builder.Property(s => s.HeureDebut).IsRequired();
-            builder.Property(s => s.HeureFin).IsRequired();
+            builder.Property(s => s.HeureDebut)
+                .IsRequired()
+                .HasMaxLength(5);
+            builder.Property(s => s.HeureFin)
+                .IsRequired()
+                .HasMaxLength(5);
             builder.Property(s => s.PrixAffilies).IsRequired();
             builder.Property(s => s.PrixExternes).IsRequired();
             builder.Property(s => s.IDClassementMinimum).IsRequired();
