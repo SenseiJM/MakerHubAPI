@@ -18,6 +18,8 @@ namespace MakerHubAPI.Services {
         }
 
         public void Create(JoueurAddDTO dto) {
+            //Injecter les services et vérifier les données récupérées dans dto
+            //Si les données ne correspondent pas, envoyer une exception
             cTTDB.Joueurs.Add(new Joueur {
                 Nom = dto.Nom,
                 Prenom = dto.Prenom,
@@ -25,21 +27,28 @@ namespace MakerHubAPI.Services {
                 IDClassementDames = dto.IDClassementDames,
                 IDCategorieAge = dto.IDCategorieAge,
                 Genre = dto.Genre,
+                //enum pour Genre
                 IDEquipeHommes = dto.IDEquipeHommes,
                 IDEquipeDames = dto.IDEquipeDames
             });
             cTTDB.SaveChanges();
+            //Ajouter contraintes
         }
 
         public JoueurDetailsDTO GetByID(int id) {
 
-            Joueur joueur = cTTDB.Joueurs.FirstOrDefault(j => j.ID == id);
+            Joueur joueur = cTTDB.Joueurs.Include(j => j.ClassementHommes).Include(j=> j.ClassementDames).FirstOrDefault(j => j.ID == id);
+
+            //jointure entre les joueurs et les autres tables de la DB
 
             return new JoueurDetailsDTO {
+                ID = joueur.ID,
                 Nom = joueur.Nom,
                 Prenom = joueur.Prenom,
                 IDClassementHommes = joueur.IDClassementHommes,
+                ClassementHommes = joueur.ClassementHommes.Denomination,
                 IDClassementDames = joueur.IDClassementDames,
+                ClassementDames = joueur.ClassementDames?.Denomination,
                 IDCategorieAge = joueur.IDCategorieAge,
                 Genre = joueur.Genre,
                 IDEquipeHommes = joueur.IDEquipeHommes,
