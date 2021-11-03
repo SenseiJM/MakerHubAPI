@@ -12,6 +12,7 @@ using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace MakerHubAPI {
@@ -50,6 +51,10 @@ namespace MakerHubAPI {
             services.AddScoped<StageService>();
             services.AddScoped<TypeSouperService>();
             services.AddScoped<CategorieAgeService>();
+
+            services.AddScoped<HttpClient>(b => new HttpClient { BaseAddress = new Uri("http://localhost:3004") });
+
+            services.AddScoped<ClubService>();
 
         }
 

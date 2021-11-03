@@ -24,8 +24,8 @@ namespace MakerHubAPI.DAL {
         public DbSet<TypeSouper> TypesSoupers {  get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
-            optionsBuilder.UseSqlServer("server=SENSEI-ALICE-V1\\TB2019;initial catalog=MakerHubCTTPhilippeville;integrated security=true;");
-            //optionsBuilder.UseSqlServer("server=SONIC-10;initial catalog=MakerHubCTTPhilippeville;uid=sa;pwd=formation");
+            //optionsBuilder.UseSqlServer("server=SENSEI-ALICE-V1\\TB2019;initial catalog=MakerHubCTTPhilippeville;integrated security=true;");
+            optionsBuilder.UseSqlServer("server=SONIC-10;initial catalog=MakerHubCTTPhilippeville;uid=sa;pwd=formation");
             //optionsBuilder.UseSqlServer("server=K-LAPTOP;database=MakerHubCTTPhilippeville;integrated security = true;");
         }
 
