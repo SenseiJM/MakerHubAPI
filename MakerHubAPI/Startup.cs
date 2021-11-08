@@ -39,6 +39,11 @@ namespace MakerHubAPI {
                 builder.AllowAnyMethod();
                 builder.AllowAnyHeader();
             }));
+            services.AddCors(options => options.AddPolicy("default", builder => {
+                builder.WithOrigins("http://localhost:8100");
+                builder.AllowAnyMethod();
+                builder.AllowAnyHeader();
+            }));
 
             services.AddDbContext<CTTDBContext>();
             
