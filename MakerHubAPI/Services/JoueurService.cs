@@ -46,9 +46,9 @@ namespace MakerHubAPI.Services {
                 Nom = joueur.Nom,
                 Prenom = joueur.Prenom,
                 IDClassementHommes = joueur.IDClassementHommes,
-                ClassementHommes = joueur.ClassementHommes.Denomination,
+                ClassementHommes = joueur.ClassementHommes,
                 IDClassementDames = joueur.IDClassementDames,
-                ClassementDames = joueur.ClassementDames?.Denomination,
+                ClassementDames = joueur.ClassementDames,
                 IDCategorieAge = joueur.IDCategorieAge,
                 Genre = joueur.Genre,
                 IDEquipeHommes = joueur.IDEquipeHommes,
@@ -75,9 +75,9 @@ namespace MakerHubAPI.Services {
                 Nom = joueur.Nom,
                 Prenom = joueur.Prenom,
                 IDClassementHommes = joueur.IDClassementHommes,
-                ClassementHommes = joueur.ClassementHommes.Denomination,
+                ClassementHommes = joueur.ClassementHommes,
                 IDClassementDames = joueur.IDClassementDames,
-                ClassementDames = joueur.ClassementDames.Denomination
+                ClassementDames = joueur.ClassementDames
             });
 
         }

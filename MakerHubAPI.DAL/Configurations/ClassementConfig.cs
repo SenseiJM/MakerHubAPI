@@ -8,8 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace MakerHubAPI.DAL.Configurations {
-    public class ClassementConfig : IEntityTypeConfiguration<Classement> {
-        public void Configure(EntityTypeBuilder<Classement> builder) {
+    public class ClassementConfig : IEntityTypeConfiguration<Classement2> {
+        public void Configure(EntityTypeBuilder<Classement2> builder) {
 
             //Nommer la table
             builder.ToTable("Classement");

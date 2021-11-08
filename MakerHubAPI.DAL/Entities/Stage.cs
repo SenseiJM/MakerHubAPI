@@ -20,8 +20,8 @@ namespace MakerHubAPI.DAL.Entities {
         public string Entraineur {  get; set; }
         public int? NombreMax {  get; set; }
         public string Description {  get; set; }
-        public Classement ClassementMinimum { get; set; }
-        public Classement ClassementMaximum { get; set; }
+        public Classement2 ClassementMinimum { get; set; }
+        public Classement2 ClassementMaximum { get; set; }
         public IEnumerable<JoueurStage> JoueurStages { get; set; }
 
     }

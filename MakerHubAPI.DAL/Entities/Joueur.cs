@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MakerHubAPI.DAL.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,8 +17,8 @@ namespace MakerHubAPI.DAL.Entities {
         public string Genre {  get; set; }
         public int? IDEquipeHommes {  get; set; }
         public int? IDEquipeDames {  get; set; }
-        public Classement ClassementHommes { get; set; }
-        public Classement? ClassementDames { get; set; }
+        public Classements ClassementHommes { get; set; }
+        public Classements? ClassementDames { get; set; }
         public Equipe? EquipeHommes { get; set; }
         public Equipe? EquipeDames { get; set; }
         public CategorieAge CategorieAge { get; set; }

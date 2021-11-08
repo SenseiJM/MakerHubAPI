@@ -17,9 +17,19 @@ namespace MakerHubAPI.Controllers {
             this.cService = clubService;
         }
 
-        [HttpGet]
+        [HttpGet("clubs")]
         public IActionResult GetAllClubs() {
-            return Ok(cService.Get());
+            return Ok(cService.GetAllClubs());
+        }
+
+        [HttpGet("clubs/{index}")]
+        public IActionResult GetClubByIndex(string index) {
+            return Ok(cService.GetClubByIndex(index, 22));
+        }
+
+        [HttpGet("members")]
+        public IActionResult GetClubMembers() {
+            return Ok(cService.GetMembers(22));
         }
 
     }

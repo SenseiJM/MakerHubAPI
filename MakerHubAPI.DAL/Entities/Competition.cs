@@ -20,8 +20,8 @@ namespace MakerHubAPI.DAL.Entities {
         public string? Lien {  get; set; }
         public int? NombreMax {  get; set; }
         public CategorieAge CategorieAge {  get; set; }
-        public Classement ClassementMinimum { get; set; }
-        public Classement ClassementMaximum { get; set; }
+        public Classement2 ClassementMinimum { get; set; }
+        public Classement2 ClassementMaximum { get; set; }
         public IEnumerable<JoueurCompetition> JoueurCompetitions { get; set; }
 
     }

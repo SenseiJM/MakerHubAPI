@@ -1,6 +1,7 @@
 ﻿using MakerHubAPI.DAL;
 using MakerHubAPI.DAL.Entities;
 using MakerHubAPI.DTO.Stage;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,7 +35,7 @@ namespace MakerHubAPI.Services {
         }
 
         public StageDetailsDTO GetByID(int id) {
-            Stage stage = cTTDB.Stages.FirstOrDefault(s => s.ID == id);
+            Stage stage = cTTDB.Stages.Include(j => j.JoueurStages).ThenInclude(s => s.Joueur).FirstOrDefault(s => s.ID == id);
 
             return new StageDetailsDTO {
                 DateDebut = stage.DateDebut,
@@ -47,7 +48,13 @@ namespace MakerHubAPI.Services {
                 IDClassementMinimum = stage.IDClassementMinimum,
                 NombreMax = stage.NombreMax,
                 PrixAffilies = stage.PrixAffilies,
-                PrixExternes = stage.PrixExternes
+                PrixExternes = stage.PrixExternes,
+                Joueurs = stage.JoueurStages.Select(j => new DTO.JoueurIndexDTO {
+                    ID = j.Joueur.ID,
+                    Nom = j.Joueur.Nom,
+                    Prenom = j.Joueur.Prenom,
+                    ClassementHommes = j.Joueur.ClassementHommes
+                })
             };
         }
 

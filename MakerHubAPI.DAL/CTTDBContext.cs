@@ -13,7 +13,7 @@ namespace MakerHubAPI.DAL {
         public DbSet<Annonce> Annonces {  get; set; }
         public DbSet<CategorieAge> CategoriesAge {  get; set; }
         public DbSet<CategorieInterclubs> CategoriesInterclubs {  get; set; }
-        public DbSet<Classement> Classements {  get; set; }
+        public DbSet<Classement2> Classements {  get; set; }
         public DbSet<Competition> Competitions {  get; set; }
         public DbSet<Equipe> Equipes {  get; set; }
         public DbSet<Joueur> Joueurs {  get; set; }

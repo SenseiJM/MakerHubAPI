@@ -16,14 +16,14 @@ namespace MakerHubAPI.Services {
         }
 
         public void Create(ClassementAddDTO dto) {
-            cTTDB.Classements.Add(new Classement {
+            cTTDB.Classements.Add(new Classement2 {
                 Denomination = dto.Denomination
             });
             cTTDB.SaveChanges();
         }
 
         public ClassementDetailsDTO GetByID(int id) {
-            Classement classement = cTTDB.Classements.FirstOrDefault(c => c.ID == id);
+            Classement2 classement = cTTDB.Classements.FirstOrDefault(c => c.ID == id);
 
             return new ClassementDetailsDTO {
                 Denomination = classement.Denomination
@@ -40,7 +40,7 @@ namespace MakerHubAPI.Services {
         }
 
         public void Update(ClassementDetailsDTO dto, int id) {
-            Classement classement = cTTDB.Classements.FirstOrDefault(c => c.ID == id);
+            Classement2 classement = cTTDB.Classements.FirstOrDefault(c => c.ID == id);
 
             classement.Denomination = dto.Denomination;
 

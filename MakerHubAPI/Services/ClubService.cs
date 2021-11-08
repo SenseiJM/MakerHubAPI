@@ -1,4 +1,5 @@
 ﻿using MakerHubAPI.DTO.Club;
+using MakerHubAPI.DTO.Member;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -15,11 +16,34 @@ namespace MakerHubAPI.Services {
             _client = client;
         }
 
-        public IEnumerable<ClubIndexDTO> Get() {
+        public IEnumerable<ClubIndexDTO> GetAllClubs() {
             HttpResponseMessage message = _client.GetAsync("v1/clubs").Result;
             if(message.IsSuccessStatusCode) {
                 string json = message.Content.ReadAsStringAsync().Result;
                 return JsonConvert.DeserializeObject<IEnumerable<ClubIndexDTO>>(json);
+            }
+            throw new HttpRequestException();
+        }
+
+        public ClubIndexDTO GetClubByIndex(string index, int seasonID) {
+            _client.DefaultRequestHeaders.Add("X-TabT-Database", "aftt");
+            _client.DefaultRequestHeaders.Add("X-Tabt-Season", seasonID.ToString());
+
+            HttpResponseMessage message = _client.GetAsync("v1/clubs/" + index).Result;
+            if (message.IsSuccessStatusCode) {
+                string json = message.Content.ReadAsStringAsync().Result;
+                return JsonConvert.DeserializeObject<ClubIndexDTO>(json);
+            }
+            throw new HttpRequestException();
+        }
+
+        public IEnumerable<MemberIndexDTO> GetMembers(int seasonID) {
+            _client.DefaultRequestHeaders.Add("X-Tabt-Database", "aftt");
+            _client.DefaultRequestHeaders.Add("X-Tabt-Season", seasonID.ToString());
+            HttpResponseMessage message = _client.GetAsync("v1/clubs/N069/members").Result;
+            if (message.IsSuccessStatusCode) {
+                string json = message.Content.ReadAsStringAsync().Result;
+                return JsonConvert.DeserializeObject<IEnumerable<MemberIndexDTO>>(json);
             }
             throw new HttpRequestException();
         }

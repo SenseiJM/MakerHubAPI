@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace MakerHubAPI.DAL.Entities {
-    public class Classement {
+    public class Classement2 {
 
         public int ID {  get; set; }
         public string Denomination {  get; set; }
