@@ -51,6 +51,8 @@ namespace MakerHubAPI {
             services.AddScoped<StageService>();
             services.AddScoped<TypeSouperService>();
             services.AddScoped<CategorieAgeService>();
+            services.AddScoped<ClubService>();
+            services.AddScoped<MatchService>();
 
             services.AddScoped<HttpClient>(b => new HttpClient { BaseAddress = new Uri("http://localhost:3004") });
 
