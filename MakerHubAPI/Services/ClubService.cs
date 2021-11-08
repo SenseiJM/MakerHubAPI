@@ -1,5 +1,7 @@
 ﻿using MakerHubAPI.DTO.Club;
 using MakerHubAPI.DTO.Member;
+using MakerHubAPI.DTO.Season;
+using MakerHubAPI.DTO.Team;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -16,7 +18,19 @@ namespace MakerHubAPI.Services {
             _client = client;
         }
 
-        public IEnumerable<ClubIndexDTO> GetAllClubs() {
+        public int GetCurrentSeason() {
+            HttpResponseMessage message = _client.GetAsync("v1/seasons/current").Result;
+            if(message.IsSuccessStatusCode) {
+                string json = message.Content.ReadAsStringAsync().Result;
+                return JsonConvert.DeserializeObject<SeasonDetailsDTO>(json).Season;
+            }
+            throw new HttpRequestException();
+        }
+
+        public IEnumerable<ClubIndexDTO> GetAllClubs(int seasonID) {
+            _client.DefaultRequestHeaders.Add("X-TabT-Database", "aftt");
+            _client.DefaultRequestHeaders.Add("X-Tabt-Season", seasonID.ToString());
+
             HttpResponseMessage message = _client.GetAsync("v1/clubs").Result;
             if(message.IsSuccessStatusCode) {
                 string json = message.Content.ReadAsStringAsync().Result;
@@ -44,6 +58,16 @@ namespace MakerHubAPI.Services {
             if (message.IsSuccessStatusCode) {
                 string json = message.Content.ReadAsStringAsync().Result;
                 return JsonConvert.DeserializeObject<IEnumerable<MemberIndexDTO>>(json);
+            }
+            throw new HttpRequestException();
+        }
+
+        public IEnumerable<TeamIndexDTO> GetTeams(int seasonID) {
+            _client.DefaultRequestHeaders.Add("X-Tabt-Database", "aftt");
+            HttpResponseMessage message = _client.GetAsync("v1/clubs/N069/teams?season=" + seasonID).Result;
+            if (message.IsSuccessStatusCode) {
+                string json = message.Content.ReadAsStringAsync().Result;
+                return JsonConvert.DeserializeObject<IEnumerable<TeamIndexDTO>>(json);
             }
             throw new HttpRequestException();
         }

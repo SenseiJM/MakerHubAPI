@@ -13,23 +13,31 @@ namespace MakerHubAPI.Controllers {
 
         private ClubService cService;
 
+        public int CurrentSeason { get; set; }
+
         public ClubController(ClubService clubService) {
             this.cService = clubService;
+            CurrentSeason = cService.GetCurrentSeason();
         }
 
         [HttpGet("clubs")]
         public IActionResult GetAllClubs() {
-            return Ok(cService.GetAllClubs());
+            return Ok(cService.GetAllClubs(CurrentSeason));
         }
 
         [HttpGet("clubs/{index}")]
         public IActionResult GetClubByIndex(string index) {
-            return Ok(cService.GetClubByIndex(index, 22));
+            return Ok(cService.GetClubByIndex(index, CurrentSeason));
         }
 
         [HttpGet("members")]
         public IActionResult GetClubMembers() {
-            return Ok(cService.GetMembers(22));
+            return Ok(cService.GetMembers(CurrentSeason));
+        }
+
+        [HttpGet("Teams")]
+        public IActionResult GetClubTeams() {
+            return Ok(cService.GetTeams(CurrentSeason));
         }
 
     }
