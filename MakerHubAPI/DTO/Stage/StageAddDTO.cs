@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MakerHubAPI.DAL.Enums;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -33,10 +34,10 @@ namespace MakerHubAPI.DTO.Stage {
         public double PrixExternes { get; set; }
 
         [Required]
-        public int IDClassementMinimum {get;set; }
+        public Classements ClassementMinimum {get;set; }
 
         [Required]
-        public int IDClassementMaximum { get; set; }
+        public Classements ClassementMaximum { get; set; }
 
         [Required]
         [MaxLength(50)]

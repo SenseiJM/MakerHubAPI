@@ -24,8 +24,8 @@ namespace MakerHubAPI.DAL.Configurations {
             builder.Property(s => s.Description)
                 .IsRequired()
                 .HasMaxLength(1500);
+            builder.Property(s => s.TypeSouper).IsRequired().HasConversion<string>();
 
-            builder.HasOne(s => s.TypeSouper).WithMany(ts => ts.Soupers).HasForeignKey(s => s.IDType);
         }
     }
 }

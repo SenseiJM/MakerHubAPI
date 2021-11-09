@@ -14,27 +14,9 @@ namespace MakerHubAPI.DAL.Configurations {
 
             builder.HasKey(j => j.ID);
 
-            builder.Property(j => j.ID).ValueGeneratedOnAdd();
-
-            builder.Property(j => j.Nom)
-                .IsRequired()
-                .HasMaxLength(50);
-            builder.Property(j => j.Prenom)
-                .IsRequired()
-                .HasMaxLength(50);
-            builder.Property(j => j.IDClassementHommes).IsRequired();
-            builder.Property(j => j.IDCategorieAge).IsRequired();
-            builder.Property(j => j.Genre)
-                .IsRequired()
-                .HasMaxLength(6);
-            builder.Property(j => j.ClassementHommes).HasConversion<string>().IsRequired();
-            builder.Property(j => j.ClassementDames).HasConversion<string>();
-
-            //builder.HasOne(j => j.ClassementHommes).WithMany(c => c.JoueursHommes).HasForeignKey(j => j.IDClassementHommes);
-            //builder.HasOne(j => j.ClassementDames).WithMany(c => c.JoueursDames).HasForeignKey(j => j.IDClassementDames);
-            builder.HasOne(j => j.CategorieAge).WithMany(ca => ca.Joueurs).HasForeignKey(j => j.IDCategorieAge);
-            builder.HasOne(j => j.EquipeHommes).WithMany(e => e.JoueursHommes).HasForeignKey(j => j.IDEquipeHommes);
-            builder.HasOne(j => j.EquipeDames).WithMany(e => e.JoueursDames).HasForeignKey(j => j.IDEquipeDames);
+            builder.Property(j => j.IDAFTT).IsRequired();
+            builder.Property(j => j.IdentifiantConnexion).IsRequired();
+            builder.Property(j => j.MotDePasse).IsRequired();
         }
     }
 }

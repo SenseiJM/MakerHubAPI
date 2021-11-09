@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MakerHubAPI.DAL.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,7 +16,7 @@ namespace MakerHubAPI.DAL.Entities {
         public string Description {  get; set; }
         public byte[]? Photo {  get; set; }
         public int? NombreMax { get; set; }
-        public TypeSouper TypeSouper { get; set; }
+        public TypeSoupers TypeSouper { get; set; }
         public string Titre { get; set; }
 
     }

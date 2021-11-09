@@ -17,7 +17,7 @@ namespace MakerHubAPI.DTO.Stage {
         public string Entraineur { get; set; }
         public int? NombreMax { get; set; }
         public string Description { get; set; }
-        public IEnumerable<JoueurIndexDTO> Joueurs { get; set; }
+        //public IEnumerable<JoueurIndexDTO> Joueurs { get; set; }
 
 
     }

@@ -1,33 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace MakerHubAPI.DTO {
+﻿namespace MakerHubAPI.DTO.Joueur {
     public class JoueurAddDTO {
 
-        [Required]
-        [MaxLength(50)]
-        public string Nom { get; set; }
+        public int IDAFTT { get; set; }
 
-        [Required]
-        [MaxLength(50)]
-        public string Prenom { get; set; }
+        //Email (plus tard)
+        public string IdentifiantConnexion { get; set; }
 
-        [Required]
-        public int IDClassementHommes { get; set; }
-        public int? IDClassementDames { get; set; }
-
-        [Required]
-        public int IDCategorieAge { get; set; }
-
-        [Required]
-        [MaxLength(6)]
-        public string Genre { get; set; }
+        public string MotDePasse { get; set; }
 
         public int? IDEquipeHommes { get; set; }
+
         public int? IDEquipeDames { get; set; }
+
+        public string? HeureDepartHommes { get; set; }
+
+        public string? HeureDepartDames { get; set; }
 
     }
 }

@@ -29,10 +29,9 @@ namespace MakerHubAPI.DAL.Configurations {
                 .IsRequired()
                 .HasMaxLength(1500);
 
-            //Ajouter une contrainte de validation
-            builder.HasOne(c => c.CategorieAge).WithMany(ca => ca.Competitions).HasForeignKey(c => c.IDCategorieAge).OnDelete(DeleteBehavior.NoAction);
-            builder.HasOne(c => c.ClassementMinimum).WithMany(cm => cm.CompetitionsMin).HasForeignKey(c => c.IDClassementMinimum).OnDelete(DeleteBehavior.NoAction);
-            builder.HasOne(c => c.ClassementMaximum).WithMany(cm => cm.CompetitionsMax).HasForeignKey(c => c.IDClassementMaximum).OnDelete(DeleteBehavior.NoAction);
+            builder.Property(c => c.ClassementMaximum).IsRequired().HasConversion<string>();
+            builder.Property(c => c.ClassementMinimum).IsRequired().HasConversion<string>();
+            builder.Property(c => c.CategorieAge).IsRequired().HasConversion<string>();
         }
     }
 }

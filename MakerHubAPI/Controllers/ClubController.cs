@@ -35,7 +35,7 @@ namespace MakerHubAPI.Controllers {
             return Ok(cService.GetMembers(CurrentSeason));
         }
 
-        [HttpGet("Teams")]
+        [HttpGet("teams")]
         public IActionResult GetClubTeams() {
             return Ok(cService.GetTeams(CurrentSeason));
         }

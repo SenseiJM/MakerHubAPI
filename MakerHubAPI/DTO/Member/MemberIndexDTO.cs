@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace MakerHubAPI.DTO.Member {
     public class MemberIndexDTO {
+        public int Position { get; set; }
         public int UniqueIndex { get; set; }
         public int RankingIndex { get; set; }
         public string FirstName { get; set; }

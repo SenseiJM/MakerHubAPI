@@ -1,4 +1,5 @@
 ﻿using MakerHubAPI.DTO;
+using MakerHubAPI.DTO.Joueur;
 using MakerHubAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -26,32 +27,32 @@ namespace MakerHubAPI.Controllers {
 
         }
 
-        [HttpGet("byID/{id}")]
-        public IActionResult GetOneByID(int id) {
-            return Ok(jService.GetByID(id));
-        }
+        //[HttpGet("byID/{id}")]
+        //public IActionResult GetOneByID(int id) {
+        //    return Ok(jService.GetByID(id));
+        //}
 
-        [HttpGet("byName/{name}")]
-        public IActionResult GetAllByName(string name) {
-            return Ok(jService.GetAllByName(name));
-        }
+        //[HttpGet("byName/{name}")]
+        //public IActionResult GetAllByName(string name) {
+        //    return Ok(jService.GetAllByName(name));
+        //}
 
         [HttpGet]
         public IActionResult GetAll() {
             return Ok(jService.GetAll());
         }
 
-        [HttpPut("{id}")]
-        public IActionResult Update(JoueurDetailsDTO dto, int id) {
-            jService.Update(dto, id);
-            return NoContent();
-        }
+        //[HttpPut("{id}")]
+        //public IActionResult Update(JoueurDetailsDTO dto, int id) {
+        //    jService.Update(dto, id);
+        //    return NoContent();
+        //}
 
-        [HttpDelete("{id}")]
-        public IActionResult Delete(int id) {
-            jService.Delete(id);
-            return NoContent();
-        }
+        //[HttpDelete("{id}")]
+        //public IActionResult Delete(int id) {
+        //    jService.Delete(id);
+        //    return NoContent();
+        //}
 
     }
 }

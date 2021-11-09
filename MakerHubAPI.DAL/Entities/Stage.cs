@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MakerHubAPI.DAL.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,13 +16,11 @@ namespace MakerHubAPI.DAL.Entities {
         public string HeureFin {  get; set; }
         public double PrixAffilies {  get; set; }
         public double PrixExternes {  get; set; }
-        public int IDClassementMinimum {  get; set; }
-        public int IDClassementMaximum {  get; set; }
         public string Entraineur {  get; set; }
         public int? NombreMax {  get; set; }
         public string Description {  get; set; }
-        public Classement2 ClassementMinimum { get; set; }
-        public Classement2 ClassementMaximum { get; set; }
+        public Classements ClassementMinimum { get; set; }
+        public Classements ClassementMaximum { get; set; }
         public IEnumerable<JoueurStage> JoueurStages { get; set; }
 
     }

@@ -13,6 +13,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace MakerHubAPI {
@@ -26,36 +27,34 @@ namespace MakerHubAPI {
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services) {
 
-            services.AddControllers();
+            services.AddControllers().AddJsonOptions(opts => {
+                var enumConverter = new JsonStringEnumConverter();
+                opts.JsonSerializerOptions.Converters.Add(enumConverter);
+            });
             services.AddSwaggerGen(c => {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MakerHubAPI", Version = "v1" });
             });
 
             //CORS (Règles d'accessibilité à l'API)
             services.AddCors(options => options.AddPolicy("default", builder => {
-                builder.WithOrigins("http://localhost:4200"); //API Privée
+                builder.WithOrigins("http://localhost:4200", "http://localhost:8100"); //API Privée
                 //builder.AllowAnyOrigin(); //API Publique
                 //builder.WithMethods("GET"); //Autorise seulement la lecture
                 builder.AllowAnyMethod();
                 builder.AllowAnyHeader();
             }));
-            services.AddCors(options => options.AddPolicy("default", builder => {
-                builder.WithOrigins("http://localhost:8100");
-                builder.AllowAnyMethod();
-                builder.AllowAnyHeader();
-            }));
+            //services.AddCors(options => options.AddPolicy("default", builder => {
+            //    builder.WithOrigins("http://localhost:8100");
+            //    builder.AllowAnyMethod();
+            //    builder.AllowAnyHeader();
+            //}));
 
             services.AddDbContext<CTTDBContext>();
             
             services.AddScoped<JoueurService>();
             services.AddScoped<AnnonceService>();
-            services.AddScoped<CategorieInterclubsService>();
-            services.AddScoped<ClassementService>();
-            services.AddScoped<EquipeService>();
             services.AddScoped<SouperService>();
             services.AddScoped<StageService>();
-            services.AddScoped<TypeSouperService>();
-            services.AddScoped<CategorieAgeService>();
             services.AddScoped<ClubService>();
             services.AddScoped<MatchService>();
 

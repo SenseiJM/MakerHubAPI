@@ -27,8 +27,6 @@ namespace MakerHubAPI.DAL.Configurations {
                 .HasMaxLength(5);
             builder.Property(s => s.PrixAffilies).IsRequired();
             builder.Property(s => s.PrixExternes).IsRequired();
-            builder.Property(s => s.IDClassementMinimum).IsRequired();
-            builder.Property(s => s.IDClassementMaximum).IsRequired();
             builder.Property(s => s.Entraineur)
                 .IsRequired()
                 .HasMaxLength(50);
@@ -36,8 +34,8 @@ namespace MakerHubAPI.DAL.Configurations {
                 .IsRequired()
                 .HasMaxLength(1500);
 
-            builder.HasOne(s => s.ClassementMinimum).WithMany(cm => cm.StagesMin).HasForeignKey(s => s.IDClassementMinimum).OnDelete(DeleteBehavior.NoAction);
-            builder.HasOne(s => s.ClassementMaximum).WithMany(cm => cm.StagesMax).HasForeignKey(s => s.IDClassementMaximum).OnDelete(DeleteBehavior.NoAction);
+            builder.Property(s => s.ClassementMaximum).IsRequired().HasConversion<string>();
+            builder.Property(s => s.ClassementMinimum).IsRequired().HasConversion<string>();
         }
     }
 }
